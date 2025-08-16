@@ -2,6 +2,7 @@ import React from "react";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { MenuSection } from "@/components/MenuSection";
+import { Footer } from "@/components/Footer";
 import { useCart, useFavorites } from "@/hooks/useLocalStorage";
 import { allProducts } from "@/data/products";
 
@@ -21,6 +22,7 @@ const Index = () => {
         title="Crafted with Love, Served with Passion"
         description="Whatever your diet or preferences, there's enough choice for everyone. Discover our premium selection of coffee, food, and treats."
       />
+      <Footer />
     </div>
   );
 };
