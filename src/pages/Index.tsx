@@ -1,12 +1,25 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Header } from "@/components/Header";
+import { Hero } from "@/components/Hero";
+import { MenuSection } from "@/components/MenuSection";
+import { useCart, useFavorites } from "@/hooks/useLocalStorage";
+import { allProducts } from "@/data/products";
 
 const Index = () => {
+  const { getCartItemsCount } = useCart();
+  const { favoritesCount } = useFavorites();
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Header 
+        cartItemsCount={getCartItemsCount()} 
+        favoritesCount={favoritesCount}
+      />
+      <Hero />
+      <MenuSection 
+        products={allProducts}
+        title="Crafted with Love, Served with Passion"
+        description="Whatever your diet or preferences, there's enough choice for everyone. Discover our premium selection of coffee, food, and treats."
+      />
     </div>
   );
 };
